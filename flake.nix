@@ -21,6 +21,7 @@
     in {
       homeConfigurations."xenonfandangon" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+	defaultPackage.${system} = home-manager.defaultPackage.${system};
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
