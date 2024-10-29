@@ -16,8 +16,9 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-    ./modules/packages.nix
+    ./modules/packages
     ./modules/files.nix
+    ./modules/xdg.nix
   ];
 
   # Home Manager can also manage your environment variables through

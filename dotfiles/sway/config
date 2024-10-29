@@ -83,6 +83,7 @@ input "type:keyboard" {
 # Actions:
 #
     bindcode $printcode exec flameshot gui
+    bindsym --locked XF86AudioNext exec playerctl next
 #
 # Basics:
 #

@@ -13,6 +13,14 @@
 
   outputs = { self, nixpkgs, home-manager, nixgl, ... }:
     let
+      # kitty-overlay = final: prev: {
+      #   kitty = prev.kitty.overrideAttrs (oldAttrs: {
+      #     postInstall = (oldAttrs.postInstall or "") + ''
+      #       substituteInPlace $out/share/applications/kitty.desktop \
+      #       --replace "Exec=kitty" "Exec=sh -c \"nixGLIntel kitty\""
+      #     '';
+      #   });
+      # };
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -26,6 +34,13 @@
 	dotfiles = rec {
 	  root-dir = "${self}" + "/dotfiles";
 	  sway-dir = "${root-dir}" + "/sway";
+	};
+
+	programs = rec {
+          root-dir = "${self}" + "/modules/packages/programs";
+	  neovim = "${root-dir}" + "/neovim.nix";
+	  bash = "${root-dir}" + "/bash.nix";
+	  kitty = "${root-dir}" + "/kitty.nix";
 	};
       };
     in {
