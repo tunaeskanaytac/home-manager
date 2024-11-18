@@ -34,6 +34,7 @@
 	dotfiles = rec {
 	  root-dir = "${self}" + "/dotfiles";
 	  sway-dir = "${root-dir}" + "/sway";
+	  nvim-dir = "${root-dir}" + "/nvim";
 	};
 
 	programs = rec {
@@ -41,6 +42,7 @@
 	  neovim = "${root-dir}" + "/neovim.nix";
 	  bash = "${root-dir}" + "/bash.nix";
 	  kitty = "${root-dir}" + "/kitty.nix";
+	  obs-studio = "${root-dir}" + "/obs-studio.nix";
 	};
       };
     in {
