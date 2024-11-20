@@ -7,7 +7,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   
-  programs.neovim = import filepaths.programs.neovim filepaths;
+  programs.neovim = import filepaths.programs.neovim { inherit filepaths; inherit pkgs; };
 
   programs.bash = import filepaths.programs.bash;
 

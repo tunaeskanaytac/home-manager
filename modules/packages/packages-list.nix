@@ -38,11 +38,6 @@ let
 
 		btop
 		
-		xfce.thunar
-		xfce.thunar-volman
-		xfce.thunar-archive-plugin
-		xfce.thunar-media-tags-plugin
-		gvfs
   ];
 in
 pkgs-list
