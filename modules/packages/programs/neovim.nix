@@ -15,22 +15,43 @@ in
 		catppuccin-nvim
 		kanagawa-nvim
 
+		nvim-lspconfig
+
+		luasnip
+		friendly-snippets
 		nvim-treesitter.withAllGrammars
+		lspkind-nvim
 		nvim-cmp
+		cmp-buffer
+		cmp-path
+		cmp-nvim-lua
+		cmp-nvim-lsp
+		cmp_luasnip
 
 		leap-nvim
 		plenary-nvim
 		mini-nvim
 
 		which-key-nvim
+
+		obsidian-nvim
 	];
 
 	extraPackages = with pkgs; [
 		ripgrep
+		lua-language-server
+		nixd
+	];
+
+	extraLuaPackages = luaPkgs: with luaPkgs; [
+		jsregexp
 	];
   extraLuaConfig = ''
+	-----------------------OPTIONS------------------------------------
     ${builtins.readFile (nvim + "/options.lua")}
+	-----------------------KEYMAPS------------------------------------
 		${builtins.readFile (nvim + "/keymaps.lua")}
+	-----------------------PLUGINS------------------------------------
 		${builtins.readFile (nvim + "/plugins.lua")}
   '';
 }
