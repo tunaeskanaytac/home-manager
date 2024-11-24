@@ -14,4 +14,6 @@
   programs.kitty = import filepaths.programs.kitty;
 
   programs.obs-studio = import filepaths.programs.obs-studio;
+	
+	programs.fzf = import filepaths.programs.fzf;
 }

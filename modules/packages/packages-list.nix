@@ -21,6 +21,8 @@ let
     git
     lazygit
     gh
+		zoxide
+
     obsidian
 
     (pkgs.writeShellScriptBin "${test}" ''

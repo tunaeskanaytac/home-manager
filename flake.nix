@@ -41,6 +41,7 @@
 					bash = "${root-dir}" + "/bash.nix";
 					kitty = "${root-dir}" + "/kitty.nix";
 					obs-studio = "${root-dir}" + "/obs-studio.nix";
+					fzf = "${root-dir}" + "/fzf.nix";
 				};
 			};
     in {

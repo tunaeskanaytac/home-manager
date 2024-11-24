@@ -15,6 +15,8 @@ in
 		catppuccin-nvim
 		kanagawa-nvim
 
+		nvim-web-devicons
+
 		nvim-lspconfig
 
 		luasnip
@@ -27,6 +29,7 @@ in
 		cmp-nvim-lua
 		cmp-nvim-lsp
 		cmp_luasnip
+		nvim-autopairs
 
 		leap-nvim
 		plenary-nvim
@@ -35,12 +38,15 @@ in
 		which-key-nvim
 
 		obsidian-nvim
+		undotree
 	];
 
 	extraPackages = with pkgs; [
 		ripgrep
 		lua-language-server
 		nixd
+		tree-sitter
+		nodejs_latest
 	];
 
 	extraLuaPackages = luaPkgs: with luaPkgs; [
