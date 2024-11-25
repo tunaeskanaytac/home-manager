@@ -33,7 +33,6 @@ let
     # nixgl.auto.nixGLDefault #Impure Package
 
     jetbrains.idea-ultimate
-		jetbrains.rider
 
     prismlauncher
 		heroic

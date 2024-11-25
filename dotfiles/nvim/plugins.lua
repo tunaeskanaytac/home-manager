@@ -3,7 +3,7 @@ require 'nvim-treesitter.configs'.setup {
 		enable = true,
 
 		disable = function(lang, buf)
-			local max_filesize = 100 * 1024   -- 100 KB
+			local max_filesize = 100 * 1024 -- 100 KB
 			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
 			if ok and stats and stats.size > max_filesize then
 				return true
@@ -28,17 +28,17 @@ require('mini.pick').setup()
 require("mini.surround").setup({
 	-- Module mappings. Use `''` (empty string) to disable one.
 	mappings = {
-		add = 'ys',            -- Add surrounding in Normal and Visual modes
-		delete = 'ds',         -- Delete surrounding
-		find = '',           -- Find surrounding (to the right)
-		find_left = '',      -- Find surrounding (to the left)
-		highlight = '',      -- Highlight surrounding
-		replace = 'cs',        -- Replace surrounding
+		add = 'ys',    -- Add surrounding in Normal and Visual modes
+		delete = 'ds', -- Delete surrounding
+		find = '',     -- Find surrounding (to the right)
+		find_left = '', -- Find surrounding (to the left)
+		highlight = '', -- Highlight surrounding
+		replace = 'cs', -- Replace surrounding
 		update_n_lines = '', -- Update `n_lines`
 	},
 })
 
-require'nvim-web-devicons'.setup{}
+require 'nvim-web-devicons'.setup {}
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -47,6 +47,25 @@ require 'lspconfig'.lua_ls.setup {
 	capabilities = capabilities
 }
 require 'lspconfig'.nixd.setup {
+	capabilities = capabilities
+}
+
+local handle = io.popen("which OmniSharp")
+local omniSharpDLLDir
+if handle ~= nil then
+	local omniSharpDir = handle:read("*a")
+	omniSharpDLLDir = string.sub(omniSharpDir, 1, string.len(omniSharpDir) - 14) .. "lib/omnisharp-roslyn/OmniSharp.dll"
+else
+	error("OmniSharp doesn't exist?")
+end
+require 'lspconfig'.omnisharp.setup {
+	cmd = { "dotnet", omniSharpDLLDir },
+	handlers = {
+		["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+		["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
+		["textDocument/references"] = require('omnisharp_extended').references_handler,
+		["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
+	},
 	capabilities = capabilities
 }
 
@@ -71,7 +90,7 @@ cmp.setup {
 		["<C-space>"] = cmp.mapping {
 			i = cmp.mapping.complete(),
 			c = function(
-					_ --[[fallback]]
+				_ --[[fallback]]
 			)
 				if cmp.visible() then
 					if not cmp.confirm { select = true } then
@@ -99,20 +118,20 @@ cmp.setup {
 		-- If you want tab completion :'(
 		--  First you have to just promise to read `:help ins-completion`.
 		--
-		-- ["<Tab>"] = function(fallback)
-		--   if cmp.visible() then
-		--     cmp.select_next_item()
-		--   else
-		--     fallback()
-		--   end
-		-- end,
-		-- ["<S-Tab>"] = function(fallback)
-		--   if cmp.visible() then
-		--     cmp.select_prev_item()
-		--   else
-		--     fallback()
-		--   end
-		-- end,
+		["<Tab>"] = function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
+		end,
+		["<S-Tab>"] = function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end,
 	},
 
 	-- Youtube:
@@ -228,7 +247,7 @@ cmp.setup.cmdline(":", {
 require('nvim-autopairs').setup({
 	check_ts = true,
 	ts_config = {
-		lua = { 'string' },   -- it will not add a pair on that treesitter node
+		lua = { 'string' }, -- it will not add a pair on that treesitter node
 		javascript = { 'template_string' },
 	}
 })
@@ -236,8 +255,6 @@ require('nvim-autopairs').setup({
 -- If you want insert `(` after select function or method item
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
+	'confirm_done',
+	cmp_autopairs.on_confirm_done()
 )
-
-

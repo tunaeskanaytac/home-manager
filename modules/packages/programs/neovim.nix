@@ -18,6 +18,7 @@ in
 		nvim-web-devicons
 
 		nvim-lspconfig
+		omnisharp-extended-lsp-nvim
 
 		luasnip
 		friendly-snippets
@@ -42,9 +43,14 @@ in
 	];
 
 	extraPackages = with pkgs; [
-		ripgrep
 		lua-language-server
 		nixd
+		omnisharp-roslyn
+
+		dotnet-sdk_8
+		mono
+		msbuild
+		ripgrep
 		tree-sitter
 		nodejs_latest
 	];
