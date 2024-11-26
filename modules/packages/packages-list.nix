@@ -1,6 +1,10 @@
-{ pkgs, config, test }:
+{
+  pkgs,
+  config,
+  test,
+}:
 let
-  pkgs-list = with pkgs;[
+  pkgs-list = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -21,7 +25,7 @@ let
     git
     lazygit
     gh
-		zoxide
+    zoxide
 
     obsidian
 
@@ -35,12 +39,12 @@ let
     jetbrains.idea-ultimate
 
     prismlauncher
-		heroic
+    heroic
 
     ani-cli
 
-		btop
-		
+    btop
+
   ];
 in
 pkgs-list
