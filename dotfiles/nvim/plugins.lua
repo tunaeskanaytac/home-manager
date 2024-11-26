@@ -196,7 +196,7 @@ cmp.setup {
 			with_text = true,
 			menu = {
 				buffer = "[buf]",
-				nvim_lsp = "[LSP]",
+			nvim_lsp = "[LSP]",
 				nvim_lua = "[api]",
 				path = "[path]",
 				luasnip = "[snip]",
@@ -263,7 +263,8 @@ cmp.event:on(
 	cmp_autopairs.on_confirm_done()
 )
 
-require'lualine'.setup{
+require("trouble").setup()
+require 'lualine'.setup {
 	sections = {
 		lualine_c = {
 			'filename',
@@ -271,3 +272,22 @@ require'lualine'.setup{
 		}
 	}
 }
+
+require("obsidian").setup({
+	workspaces = {
+		{
+			name = "ObsidianVault",
+			path = "~/Documents/ObsidianVault/",
+		},
+	},
+	-- see below for full list of options 👇
+})
+
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+		null_ls.builtins.formatting.nixfmt
+    },
+})

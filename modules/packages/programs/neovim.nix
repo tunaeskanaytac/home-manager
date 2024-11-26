@@ -32,8 +32,11 @@ in
 		cmp_luasnip
 		nvim-autopairs
 
+		none-ls-nvim
+
 		lualine-nvim
 		lualine-lsp-progress
+		trouble-nvim
 
 		leap-nvim
 		plenary-nvim
@@ -49,6 +52,8 @@ in
 		lua-language-server
 		nixd
 		omnisharp-roslyn
+
+		nixfmt-rfc-style
 
 		dotnet-sdk_8
 		mono

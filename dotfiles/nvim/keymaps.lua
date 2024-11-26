@@ -12,3 +12,5 @@ vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Code Format" })
 vim.keymap.set("n", "<leader>u", "<nop>", { desc = "+UndoTree" })
 vim.keymap.set("n", "<leader>ut", "<Cmd>UndotreeToggle<CR>", { desc = "Toggle Undo Tree" })
 
+vim.keymap.set("n", "<leader>t", "<nop>", { desc = "+Trouble" })
+vim.keymap.set("n", "<leader>td", "<Cmd>Trouble diagnostics toggle<CR>", { desc = "Toggle Diagnostics" })
