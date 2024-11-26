@@ -32,6 +32,9 @@ in
 		cmp_luasnip
 		nvim-autopairs
 
+		lualine-nvim
+		lualine-lsp-progress
+
 		leap-nvim
 		plenary-nvim
 		mini-nvim
@@ -62,8 +65,8 @@ in
 	-----------------------OPTIONS------------------------------------
     ${builtins.readFile (nvim + "/options.lua")}
 	-----------------------KEYMAPS------------------------------------
-		${builtins.readFile (nvim + "/keymaps.lua")}
+	${builtins.readFile (nvim + "/keymaps.lua")}
 	-----------------------PLUGINS------------------------------------
-		${builtins.readFile (nvim + "/plugins.lua")}
+	${builtins.readFile (nvim + "/plugins.lua")}
   '';
 }

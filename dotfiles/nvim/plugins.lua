@@ -120,14 +120,18 @@ cmp.setup {
 		--
 		["<Tab>"] = function(fallback)
 			if cmp.visible() then
-				cmp.select_next_item()
+				cmp.select_next_item({
+					behavior = cmp.SelectBehavior.Select
+				})
 			else
 				fallback()
 			end
 		end,
 		["<S-Tab>"] = function(fallback)
 			if cmp.visible() then
-				cmp.select_prev_item()
+				cmp.select_prev_item({
+					behavior = cmp.SelectBehavior.Select
+				})
 			else
 				fallback()
 			end
@@ -145,9 +149,9 @@ cmp.setup {
 		-- Youtube: Could enable this only for lua, but nvim_lua handles that already.
 		{ name = "nvim_lua" },
 
+		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		{ name = "luasnip" },
 		{ name = "buffer",  keyword_length = 5 },
 	},
 
@@ -258,3 +262,12 @@ cmp.event:on(
 	'confirm_done',
 	cmp_autopairs.on_confirm_done()
 )
+
+require'lualine'.setup{
+	sections = {
+		lualine_c = {
+			'filename',
+			'lsp_progress'
+		}
+	}
+}
