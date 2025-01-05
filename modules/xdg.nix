@@ -1,9 +1,14 @@
-{ config, pkgs, test, ... }:
+{
+  config,
+  pkgs,
+  test,
+  ...
+}:
 {
   xdg.enable = true;
   xdg.mime.enable = true;
   xdg.mimeApps.enable = true;
-  
+
   xdg.desktopEntries.kitty = {
     type = "Application";
     name = "kitty";
@@ -12,7 +17,10 @@
     startupNotify = true;
     exec = "nixGLIntel kitty";
     icon = "kitty";
-    categories = [ "System" "TerminalEmulator" ];
+    categories = [
+      "System"
+      "TerminalEmulator"
+    ];
   };
 
   xdg.desktopEntries.obs = {
@@ -23,7 +31,10 @@
     icon = "com.obsproject.Studio";
     terminal = false;
     type = "Application";
-    categories = [ "AudioVideo" "Recorder" ];
+    categories = [
+      "AudioVideo"
+      "Recorder"
+    ];
     startupNotify = true;
   };
 }

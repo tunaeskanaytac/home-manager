@@ -288,6 +288,8 @@ local null_ls = require("null-ls")
 
 null_ls.setup({
     sources = {
-		null_ls.builtins.formatting.nixfmt
+		null_ls.builtins.formatting.alejandra.with({
+			extra_args = { "--experimental-config", "../alejandra/alejandra.toml" },
+		})
     },
 })

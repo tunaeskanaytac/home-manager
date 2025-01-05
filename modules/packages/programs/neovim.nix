@@ -8,70 +8,71 @@ in
   viAlias = true;
   vimAlias = true;
   vimdiffAlias = true;
-	
-	plugins = with pkgs.vimPlugins; [
-		# COLORSCHEMES
-		gruvbox-material
-		catppuccin-nvim
-		kanagawa-nvim
 
-		nvim-web-devicons
+  plugins = with pkgs.vimPlugins; [
+    # COLORSCHEMES
+    gruvbox-material
+    catppuccin-nvim
+    kanagawa-nvim
 
-		nvim-lspconfig
-		omnisharp-extended-lsp-nvim
+    nvim-web-devicons
 
-		luasnip
-		friendly-snippets
-		nvim-treesitter.withAllGrammars
-		lspkind-nvim
-		nvim-cmp
-		cmp-buffer
-		cmp-path
-		cmp-nvim-lua
-		cmp-nvim-lsp
-		cmp_luasnip
-		nvim-autopairs
+    nvim-lspconfig
+    omnisharp-extended-lsp-nvim
 
-		none-ls-nvim
+    luasnip
+    friendly-snippets
+    nvim-treesitter.withAllGrammars
+    lspkind-nvim
+    nvim-cmp
+    cmp-buffer
+    cmp-path
+    cmp-nvim-lua
+    cmp-nvim-lsp
+    cmp_luasnip
+    nvim-autopairs
 
-		lualine-nvim
-		lualine-lsp-progress
-		trouble-nvim
+    none-ls-nvim
 
-		leap-nvim
-		plenary-nvim
-		mini-nvim
+    lualine-nvim
+    lualine-lsp-progress
+    trouble-nvim
 
-		which-key-nvim
+    leap-nvim
+    plenary-nvim
+    mini-nvim
 
-		obsidian-nvim
-		undotree
-	];
+    which-key-nvim
 
-	extraPackages = with pkgs; [
-		lua-language-server
-		nixd
-		omnisharp-roslyn
+    obsidian-nvim
+    undotree
+  ];
 
-		nixfmt-rfc-style
+  extraPackages = with pkgs; [
+    lua-language-server
+    nixd
+    omnisharp-roslyn
 
-		dotnet-sdk_8
-		mono
-		msbuild
-		ripgrep
-		tree-sitter
-		nodejs_latest
-	];
+    nixfmt-rfc-style
 
-	extraLuaPackages = luaPkgs: with luaPkgs; [
-		jsregexp
-	];
+    dotnet-sdk_8
+    mono
+    msbuild
+    ripgrep
+    tree-sitter
+    nodejs_latest
+  ];
+
+  extraLuaPackages =
+    luaPkgs: with luaPkgs; [
+      jsregexp
+    ];
   extraLuaConfig = ''
-	-----------------------OPTIONS------------------------------------
-    ${builtins.readFile (nvim + "/options.lua")}
-	-----------------------KEYMAPS------------------------------------
-	${builtins.readFile (nvim + "/keymaps.lua")}
-	-----------------------PLUGINS------------------------------------
-	${builtins.readFile (nvim + "/plugins.lua")}
+    	-----------------------OPTIONS------------------------------------
+        ${builtins.readFile (nvim + "/options.lua")}
+    	-----------------------KEYMAPS------------------------------------
+    	${builtins.readFile (nvim + "/keymaps.lua")}
+    	-----------------------PLUGINS------------------------------------
+    	${builtins.readFile (nvim + "/plugins.lua")}
   '';
 }
