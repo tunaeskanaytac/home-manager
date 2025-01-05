@@ -7,6 +7,8 @@
 ### Variables
 #
 set $printcode 107
+set $quotecode 49
+set $modcode 133
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -73,7 +75,11 @@ input "type:touchpad" {
 
 input "type:keyboard" {
     xkb_layout "tr,us,de"
-    xkb_options "grp:win_space_toggle"
+    xkb_options "grp:alt_space_toggle"
+}
+
+input "type:mouse" {
+	accel_profile "flat"
 }
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -139,6 +145,8 @@ input "type:keyboard" {
     bindgesture swipe:left workspace next
     # Switch to workspace
     bindsym $mod+1 workspace number 1
+	bindcode $mod+$quotecode workspace 11:floating
+	for_window [workspace="floating"] floating enable
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3
     bindsym $mod+4 workspace number 4
@@ -150,6 +158,7 @@ input "type:keyboard" {
     bindsym $mod+0 workspace number 10
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
+	bindcode $mod+Shift+$quotecode move container to workspace 11:floating
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3
     bindsym $mod+Shift+4 move container to workspace number 4

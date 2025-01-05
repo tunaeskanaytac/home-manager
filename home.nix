@@ -1,4 +1,9 @@
-{ config, pkgs, test, ... }:
+{
+  config,
+  pkgs,
+  test,
+  ...
+}:
 
 {
   # Home Manage needs a bit of information about you and the paths it should
@@ -41,4 +46,5 @@
     EDITOR = "nvim";
     XDG_CURRENT_DESKTOP = "Sway";
   };
+
 }

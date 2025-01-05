@@ -28,6 +28,8 @@ let
     zoxide
 
     obsidian
+	kdenlive
+	audacity
 
     (pkgs.writeShellScriptBin "${test}" ''
       echo "Hello, ${config.home.username}!"
@@ -38,12 +40,13 @@ let
 
     jetbrains.idea-ultimate
 
-    prismlauncher
-    heroic
+	prismlauncher
 
     ani-cli
 
     btop
+
+	stremio
 
   ];
 in
